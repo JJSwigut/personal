@@ -1,62 +1,48 @@
 package com.jjswigut.personal.pages
 
-import androidx.compose.runtime.*
-import com.varabyte.kobweb.compose.foundation.layout.*
+import androidx.compose.runtime.Composable
+import com.jjswigut.personal.components.index.CroppedImage
+import com.jjswigut.personal.components.index.LargeHomePageLayout
+import com.jjswigut.personal.components.index.SharingRow
+import com.jjswigut.personal.components.index.SmallHomePageLayout
+import com.jjswigut.personal.util.Res
+import com.varabyte.kobweb.compose.css.functions.LinearGradient
+import com.varabyte.kobweb.compose.css.functions.linearGradient
+import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.rememberPageContext
-import com.varabyte.kobweb.silk.components.forms.Button
-import com.varabyte.kobweb.silk.components.icons.fa.Fa3
-import com.varabyte.kobweb.silk.components.icons.fa.FaSpaghettiMonsterFlying
-import org.jetbrains.compose.web.css.Color
+import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.H1
-import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Text
-import org.w3c.dom.css.CSS
+import org.jetbrains.compose.web.css.vh
+import org.jetbrains.compose.web.css.vw
 
 @Page
 @Composable
 fun HomePage() {
     val pageContext = rememberPageContext()
-    var showCoolThing by remember { mutableStateOf(false) }
-    Column(
-        Modifier.fillMaxSize().background(Color.black),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        H1(attrs = Modifier.padding(all = 16.px).fontSize(40.px).color(Color.whitesmoke).toAttrs {
-            onMouseOver {
-                showCoolThing = true
-            }
-            onMouseOut {
-                showCoolThing = false
-            }
-        }) {
-            Text("Joshy's Site")
-        }
-        P(attrs = Modifier.fillMaxWidth().fontSize(24.px).color(Color.whitesmoke).toAttrs()) {
-            Row(Modifier.fillMaxWidth().padding(16.px)) {
-                Text("Woah")
-                Spacer()
-                Text("Nelly")
-            }
-        }
+    val (mainAlignment, pageComposable) = dynamicLayoutValues(rememberBreakpoint())
 
-        Button(
-            onClick = {
-            pageContext.router.navigateTo("/about")
-        }) {
-            Text("To About Me")
-        }
+    Box(Modifier.width(100.vw).fillMaxHeight().backgroundImage(
+        linearGradient(
+            dir = LinearGradient.Direction.ToBottom,
+            from = Res.Color.BackgroundTopGradient,
+            to = Res.Color.BackgroundBottomGradient
+        )
+    ), contentAlignment = mainAlignment) {
+        pageComposable()
+    }
+}
 
-        if (showCoolThing) {
-            FaSpaghettiMonsterFlying(Modifier.padding(16.px).color(Color.whitesmoke))
-        }
-
-
+private fun dynamicLayoutValues(breakpoint: Breakpoint): Pair<Alignment, @Composable () -> Unit> {
+    return if (breakpoint >= Breakpoint.MD) {
+        Pair(Alignment.Center) { LargeHomePageLayout() }
+    } else {
+        Pair(Alignment.TopCenter) { SmallHomePageLayout() }
     }
 }
