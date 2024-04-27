@@ -19,7 +19,6 @@ import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.px
 
@@ -54,8 +53,7 @@ fun AboutMe() {
 }
 
 private object Strings {
-    const val Description1 = "I'm just a curious Android Engineer trying to have some fun."
-    const val Description2 =
-        "I enjoy long walks on the beach and coding by moonlight. I'm passionate about Kotlin, all things Android, and Multiplatform as much as I can."
+    const val Description1 = "Hey!"
+    const val Description2 = "I'm an Android Engineer passionate about building amazing products with a focus on improving the developer experience along the way!"
     const val Description3 = "Drop me a line, I'd love to connect!"
 }
