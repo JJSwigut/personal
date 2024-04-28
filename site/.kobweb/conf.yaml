@@ -1,6 +1,5 @@
 site:
   title: "JJSwigut.com"
-#  routePrefix: "personal"
 
 server:
   files:
@@ -10,6 +9,6 @@ server:
       api: "build/libs/personal.jar"
     prod:
       script: "build/dist/js/productionExecutable/personal.js"
-      siteRoot: ".kobweb/site"
+      siteRoot: "../docs"
 
   port: 8080
