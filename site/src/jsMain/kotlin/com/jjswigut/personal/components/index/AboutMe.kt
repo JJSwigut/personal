@@ -31,7 +31,7 @@ fun AboutMe() {
         SpanText(modifier = BodyStyle.toModifier().padding(bottom = 16.px), text = Strings.Description1)
         SpanText(modifier = BodyStyle.toModifier().padding(bottom = 16.px), text = Strings.Description2)
         SpanText(modifier = BodyStyle.toModifier().padding(bottom = 24.px), text = Strings.Description3)
-        Column(Modifier.fillMaxHeight().displayIfAtLeast(Breakpoint.MD)){}
+
         Button(
             modifier = EmailButtonStyle.toModifier(),
             size = ButtonSize.LG,

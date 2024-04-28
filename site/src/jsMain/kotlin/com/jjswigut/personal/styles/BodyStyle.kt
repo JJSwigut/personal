@@ -16,6 +16,6 @@ val BodyStyle by ComponentStyle {
             .fontFamily(Res.Font.Nunito)
             .textAlign(TextAlign.Center)
             .color(Res.Color.LightText)
-            .fontSize(CSSClamp(min = 12.px, value = 2.vw, max = 20.px))
+            .fontSize(CSSClamp(min = 12.px, value = 6.vw, max = 20.px))
     }
 }
