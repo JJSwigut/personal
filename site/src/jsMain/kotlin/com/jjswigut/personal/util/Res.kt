@@ -1,5 +1,6 @@
 package com.jjswigut.personal.util
 
+import com.jjswigut.personal.model.Project
 import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.rgb
 
 object Res {
@@ -29,13 +30,12 @@ object Res {
         const val ProfilePic = "/profile_pic.png"
     }
 
-    object String {
+    object StringRes {
         const val FullName = "Joshua Swigut"
 
         const val Email = "mailto:jjswigut@gmail.com"
 
         const val EmailButtonText = "Get In Touch"
-
     }
 
     object Dimen {

@@ -15,7 +15,7 @@ kobweb {
         index {
             description.set("The personal site of Joshua Swigut")
             head.add {
-                link(rel = "stylesheet", href = "/personal/fonts/fontfaces.css")
+                link(rel = "stylesheet", href = "/fonts/fontfaces.css")
             }
         }
     }

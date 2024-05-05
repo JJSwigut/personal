@@ -6,17 +6,12 @@ import com.jjswigut.personal.styles.EmailButtonStyle
 import com.jjswigut.personal.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
-import com.varabyte.kobweb.silk.components.forms.ButtonStyle
 import com.varabyte.kobweb.silk.components.graphics.Image
-import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
-import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import kotlinx.browser.window
@@ -35,7 +30,7 @@ fun AboutMe() {
         Button(
             modifier = EmailButtonStyle.toModifier(),
             size = ButtonSize.LG,
-            onClick = { window.location.href = Res.String.Email }
+            onClick = { window.location.href = Res.StringRes.Email }
         ) {
             Image(
                 modifier = Modifier.margin(right = 12.px),
@@ -46,7 +41,7 @@ fun AboutMe() {
                     .fontSize(14.px)
                     .fontWeight(FontWeight.Bold)
                     .fontFamily(Res.Font.Nunito),
-                text = Res.String.EmailButtonText
+                text = Res.StringRes.EmailButtonText
             )
         }
     }

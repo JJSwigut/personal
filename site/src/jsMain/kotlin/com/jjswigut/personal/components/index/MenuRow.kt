@@ -24,7 +24,7 @@ fun MenuRow() {
             modifier = NameStyle.toModifier().padding(right = 16.px).onClick {
                 pageContext.router.tryRoutingTo("/")
             },
-            text = Res.String.FullName,
+            text = Res.StringRes.FullName,
         )
         Spacer()
         Row(Modifier.height(26.px).gap(12.px), verticalAlignment = Alignment.CenterVertically) {
