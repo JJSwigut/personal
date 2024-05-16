@@ -43,16 +43,18 @@ fun Projects() {
 @Composable
 private fun ProjectLayout(breakpoint: Breakpoint){
     val widthPercentage = if (breakpoint >= Breakpoint.MD) 50.percent else 100.percent
+
     Column(modifier = Modifier.fillMaxWidth(widthPercentage), horizontalAlignment = Alignment.CenterHorizontally) {
        MenuRow()
        MyProjects.allProjects.forEach { project ->
-           Project(project)
+           Project(breakpoint,project)
        }
     }
 }
 
 @Composable
 private fun Project(
+    breakpoint: Breakpoint,
     project: Project
 ) {
     with(project) {
@@ -62,7 +64,7 @@ private fun Project(
         ) {
             ProjectHeaderWithLink(text = headerText, linkText = linkText, linkUrl = linkUrl)
             description?.let {}
-            ProjectImageRow {
+            ProjectImageRow(breakpoint) {
                 images.forEach { imagePath ->
                     Image(src = imagePath, modifier = Modifier.height(50.vh))
                 }
@@ -73,12 +75,14 @@ private fun Project(
 
 @Composable
 private fun ProjectImageRow(
+    breakpoint: Breakpoint,
     content: @Composable RowScope.() -> Unit
 ){
+    val imageArrangement = if(breakpoint >= Breakpoint.MD) Arrangement.Center else Arrangement.Start
     Row(
-        modifier = HorizontalScroll.toModifier().width(100.percent).gap(12.px).padding(16.px),
+        modifier = HorizontalScroll.toModifier().width(100.vw).gap(12.px).padding(16.px),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = imageArrangement,
         content = content
     )
 }

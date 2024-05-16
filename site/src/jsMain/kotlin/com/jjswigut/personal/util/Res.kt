@@ -1,6 +1,5 @@
 package com.jjswigut.personal.util
 
-import com.jjswigut.personal.model.Project
 import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.rgb
 
 object Res {
@@ -40,16 +39,11 @@ object Res {
 
     object Dimen {
         const val ProfileCardMaxWidth = 1000
-        const val ProfileCardMaxHeight = 600
         const val IconSize = 32
     }
 
     object Font {
         const val RubikMonoOne = "RubikMonoOne"
         const val Nunito = "Nunito"
-    }
-
-    object Links {
-
     }
 }
